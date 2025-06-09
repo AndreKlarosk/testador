@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verifica Phishing</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</head>
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+  <div class="max-w-xl mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-4">Verifica Phishing</h1>
+
+    <div id="checklist" class="space-y-4">
+      <div>
+        <input type="checkbox" id="step1" class="mr-2">
+        <label for="step1">Desative a Internet temporariamente</label>
+      </div>
+      <div>
+        <input type="checkbox" id="step2" class="mr-2">
+        <label for="step2">Verifique aplicativos suspeitos em Configurações > Aplicativos</label>
+      </div>
+      <div>
+        <input type="checkbox" id="step3" class="mr-2">
+        <label for="step3">Revise permissões (câmera, microfone, etc)</label>
+      </div>
+      <div>
+        <input type="checkbox" id="step4" class="mr-2">
+        <label for="step4">Digite ##002# no discador para cancelar redirecionamentos</label>
+      </div>
+      <div>
+        <input type="checkbox" id="step5" class="mr-2">
+        <label for="step5">Execute o Play Protect na Play Store</label>
+      </div>
+      <div>
+        <input type="checkbox" id="step6" class="mr-2">
+        <label for="step6">Troque senhas principais (Google, banco, etc)</label>
+      </div>
+      <div>
+        <input type="checkbox" id="step7" class="mr-2">
+        <label for="step7">Ative verificação em duas etapas (2FA)</label>
+      </div>
+    </div>
+
+    <div class="mt-6">
+      <button onclick="resetChecklist()" class="bg-blue-600 text-white px-4 py-2 rounded">Reiniciar Checklist</button>
+    </div>
+  </div>
+
+  <script>
+    function resetChecklist() {
+      document.querySelectorAll('#checklist input[type=checkbox]').forEach(cb => cb.checked = false);
+    }
+  </script>
+</body>
+</html>
